@@ -1,6 +1,7 @@
 using Amazon.CDK;
 using Constructs;
 using Amazon.CDK.AWS.Lambda;
+using Amazon.CDK.AWS.APIGateway;
 
 namespace HelloCdkCs
 {
@@ -22,6 +23,16 @@ namespace HelloCdkCs
                 Runtime = Runtime.DOTNET_6,
                 Code = Code.FromAsset("src/TimeFunction/bin/Release/net6.0/linux-x64/publish"),
                 Handler = "TimeFunction::TimeFunction.Functions::Get"
+            });
+
+            _ = new LambdaRestApi(this, "dateApiEndPoint", new LambdaRestApiProps
+            {
+                Handler = dateLambda
+            });
+
+            _ = new LambdaRestApi(this, "timeApiEndPoint", new LambdaRestApiProps
+            {
+                Handler = timeLambda
             });
         }
     }
