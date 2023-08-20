@@ -12,3 +12,16 @@ It uses the [.NET CLI](https://docs.microsoft.com/dotnet/articles/core/) to comp
 * `cdk deploy`       deploy this stack to your default AWS account/region
 * `cdk diff`         compare deployed stack with current state
 * `cdk synth`        emits the synthesized CloudFormation template
+
+---
+
+## Bulid Command
+
+ソリューション -> プロパティ -> スタートアッププロジェクト -> マルチスタートアッププロジェクト に変更
+
+![img](multi-startp.png)
+
+> $hello-cdk-cs>dotnet publish src -c Release -r linux-x64 -p:PublishReadyToRun=false --self-contained
+
+
+[reference](https://davidpallmann.hashnode.dev/hello-cdk)
